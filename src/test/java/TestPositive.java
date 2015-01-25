@@ -22,7 +22,7 @@ public class TestPositive {
 
     @BeforeClass
     public static void authentication() throws Exception {
-        user = new Authorization("axelrodvl.test@gmail.com", "80007338495");
+        user = new Authorization("axelrodvl.test@gmail.com", "789456123");
     }
 
     /**

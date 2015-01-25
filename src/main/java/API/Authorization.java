@@ -1,13 +1,10 @@
 package API;
 
-import Entity.Employee;
 import Web.Xpath;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
-import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
@@ -15,14 +12,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
-
+import java.util.Date;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class Authorization {
     // ChromeDriver settings
@@ -41,6 +34,7 @@ public class Authorization {
     private Long expiresIn = null;
     private String refreshToken = null;
     private Long tokenStartTimeInSec = null;
+    private boolean tokenForceSet = false;
 
     public Authorization(String clientLogin, String clientPassword) throws Exception {
         // Importing ChromeDriver
@@ -50,11 +44,16 @@ public class Authorization {
         setAccessToken(getAuthorizationCode(clientLogin, clientPassword));
     }
 
+    public Authorization(String accessToken) throws Exception {
+        this.accessToken = accessToken;
+        tokenForceSet = true;
+    }
+
     /**
      * Returns OAuth 2.0 authorization code
      * @return authorization code
      */
-    private String getAuthorizationCode(String clientLogin, String clientPassword) throws OAuthSystemException, InterruptedException {
+    private String getAuthorizationCode(String clientLogin, String clientPassword) throws Exception {
         // Creating authorization request URI
         OAuthClientRequest oAuthClientRequest = OAuthClientRequest
                 .authorizationLocation(AUTH_URI)
@@ -138,17 +137,7 @@ public class Authorization {
 
         if(!tokenType.equals("bearer"))
             throw new Exception("Authorization type is changed.");
-
         tokenStartTimeInSec = new Date().getTime() / 1000;
-
-        /*
-        {
-            "access_token": "K7CLGJ7NSJ8ESQUN5TM4LPBONR1N9KD2SL7QHJOE82A8SVMNND166KGKFESGCFH1",
-            "token_type": "bearer",
-            "expires_in": 1209599,
-            "refresh_token": "MLJ85K98EK4HPN5V60B9294BQVL0BL94RU3HG4NDIF09C157GGC5SJCSBEJ5D0V0"
-        }
-        */
     }
 
     /**
@@ -165,9 +154,11 @@ public class Authorization {
     }
 
     public String getAccessToken() throws Exception {
-        Long currentTimeInSec = new Date().getTime() / 1000;
-        if(currentTimeInSec >= tokenStartTimeInSec + expiresIn)
-            updateAccessToken(refreshToken);
+        if(!tokenForceSet) {
+            Long currentTimeInSec = new Date().getTime() / 1000;
+            if (currentTimeInSec >= tokenStartTimeInSec + expiresIn)
+                updateAccessToken(refreshToken);
+        }
 
         return accessToken;
     }
