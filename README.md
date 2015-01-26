@@ -1,4 +1,4 @@
-# hhapi
+# hhapi (English)
 HeadHunter.ru API Testing
 
 API documentation:
@@ -59,7 +59,7 @@ Tests list:
 
 **There is no definition of API's behaviour of sending incorrect values of first_name, last_name and middle_name. But editing that fields at page http://hh.ru/applicant/settings prints note: "Only letters and hyphen", so this behaviour can be either relate to positive or negative cases, depends on API's requirements of checking values at API client.
 
-<h1>In Russian</h1>
+#hhapi (Русский язык)
 
 Тесты API HeadHunter.ru
 
