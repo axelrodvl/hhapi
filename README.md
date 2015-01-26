@@ -18,6 +18,7 @@ Tests list:
 - incorrectAccessToken
 3) TestPostPositive
 - setNameFull
+- setNameFullPunctuationMark
 - setNameFirstAndLast
 - setIsInSearchTrue
 - setIsInSearchFalse
