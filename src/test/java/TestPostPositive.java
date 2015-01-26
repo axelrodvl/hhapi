@@ -9,12 +9,13 @@ import static org.junit.Assert.*;
 /*
 2. Редактирование информации
         2.1 Положительные тесты
-        + 2.1.1 Редактирование фамилии, имени и отчества
-        + 2.1.2 Редактирование фамилии и имени (отчество пустое)
-        + 2.1.3 Редактирование флага "ишу/не ищу работу" = true
-        + 2.1.4 Редактирование флага "ишу/не ищу работу" = false
-        + 2.1.5 Передача некорректного строкового значения во флаг "ищу/не ищу работу"
-        + 2.1.6 Передача численного значения во флаг "ищу/не ищу работу"
+            2.1.1 Редактирование фамилии, имени и отчества
+            2.1.2 Редактирование фамилии, имени и отчества (значения со знаком "-")
+            2.1.3 Редактирование фамилии и имени (отчество пустое)
+            2.1.4 Редактирование флага "ишу/не ищу работу" = true
+            2.1.5 Редактирование флага "ишу/не ищу работу" = false
+            2.1.6 Передача некорректного строкового значения во флаг "ищу/не ищу работу"
+            2.1.7 Передача численного значения во флаг "ищу/не ищу работу"
 */
 
 public class TestPostPositive {
@@ -31,7 +32,7 @@ public class TestPostPositive {
     }
 
     /**
-     * 3.1.1 Редактирование фамилии, имени и отчества
+     * 2.1.1 Редактирование фамилии, имени и отчества
      */
     @Test
     public void setNameFull() throws Exception {
@@ -56,7 +57,32 @@ public class TestPostPositive {
     }
 
     /**
-     * 3.1.2 Редактирование фамилии и имени (отчество пустое)
+     * 2.1.2 Редактирование фамилии, имени и отчества (значения со знаком "-")
+     */
+    @Test
+    public void setNameFullPunctuationMark() throws Exception {
+        // Test data
+        final String expectedLastName = "Селезнев-Абдулаев";
+        final String expectedFirstName = "Ахмат-хаджи";
+        final String expectedMiddleName = "Ахмат-хаджи";
+
+        // Test actions
+        Me.post(user,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
+        Response response = Me.get(user);
+        Employee employee = new Employee(response);
+
+        // Test assertions
+        assertEquals(200, response.getCode());
+        assertEquals(employee.first_name, expectedFirstName);
+        assertEquals(employee.last_name, expectedLastName);
+        assertEquals(employee.middle_name, expectedMiddleName);
+    }
+
+    /**
+     * 2.1.3 Редактирование фамилии и имени (отчество пустое)
      */
     @Test
     public void setNameFirstAndLast() throws Exception {
@@ -78,7 +104,7 @@ public class TestPostPositive {
     }
 
     /**
-     * 3.1.3 Редактирование флага "ишу/не ищу работу" = true
+     * 2.1.4 Редактирование флага "ишу/не ищу работу" = true
      */
     @Test
     public void setIsInSearchTrue() throws Exception {
@@ -96,7 +122,7 @@ public class TestPostPositive {
     }
 
     /**
-     * 3.1.4 Редактирование флага "ишу/не ищу работу" = false
+     * 2.1.5 Редактирование флага "ишу/не ищу работу" = false
      */
     @Test
     public void setIsInSearchFalse() throws Exception {
@@ -114,7 +140,7 @@ public class TestPostPositive {
     }
 
     /**
-     * 3.1.5 Передача некорректного строкового значения во флаг "ищу/не ищу работу"
+     * 2.1.6 Передача некорректного строкового значения во флаг "ищу/не ищу работу"
      */
     @Test
     public void setIsInSearchIncorrectString() throws Exception {
@@ -132,7 +158,7 @@ public class TestPostPositive {
     }
 
     /**
-     * 3.1.6 Передача численного значения во флаг "ищу/не ищу работу"
+     * 2.1.7 Передача численного значения во флаг "ищу/не ищу работу"
      */
     @Test
     public void setIsInSearchIncorrectStringNumbers() throws Exception {
