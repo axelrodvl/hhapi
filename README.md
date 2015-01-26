@@ -6,7 +6,12 @@ API documentation:
 - https://github.com/hhru/api/blob/master/docs/authorization.md
 - https://github.com/hhru/api/blob/master/docs/me.md
 
-Automated tests for API.me method and OAuth authorization tools
+Automated tests for API.me method and OAuth authorization tools for API access.
+
+Class API.Authorization.java provides access token for API.
+Access token can be set two ways in class constructor:
+- by user's login and password automatically (application would open authorization page, enter login/password and checking "Provide access to application"). 
+- force setting; access token has expire value about 2 weeks, so for testing purposes it can be get once and simply set, without open any page and requests to OAuth server.
 
 Using:
 - Maven: build automation tool
