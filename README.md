@@ -17,36 +17,39 @@ Using:
 
 Tests list:
 ```
-1) TestGetPositive
-- getInfo
-2) TestGetNegative
-- incorrectAccessToken
-3) TestPostPositive
-- setNameFull
-- setNameFullPunctuationMark
-- setNameFirstAndLast
-- setIsInSearchTrue
-- setIsInSearchFalse
-- setIsInSearchIncorrectString
-- setIsInSearchIncorrectStringNumbers
-4) TestPostNegative
-- setNameFirstNamePunctuationMarks
-- setNameLastNamePunctuationMarks
-- setNameMiddleNamePunctuationMarks
-- setNameFirstNameNumbers
-- setNameLastNameNumbers
-- setNameMiddleNameNumbers
-- setNameEmptyFullName
-- setNameEmptyFirstName
-- setNameEmptyLastName
-- setNameOnlyLastName
-- setNameOnlyFirstName
-- setNameOnlyMiddleName
-- setNameOnlyLastAndMiddleName
-- setNameOnlyFirstAndMiddleName
-- setNameAndIsInSearch
-- incorrectAccessToken
+1. TestGetPositive
+  1.1 getInfo
+1. TestGetNegative
+  2.2 incorrectAccessToken
+3. TestPostPositive
+  3.1 setNameFull
+  3.2 setNameFullPunctuationMark
+  3.3 setNameFirstAndLast
+  3.4 setIsInSearchTrue
+  3.5 setIsInSearchFalse
+  3.6* setIsInSearchIncorrectString
+  3.7* setIsInSearchIncorrectStringNumbers
+4. TestPostNegative
+  4.1** setNameFirstNamePunctuationMarks
+  4.2** setNameLastNamePunctuationMarks
+  4.3** setNameMiddleNamePunctuationMarks
+  4.4** setNameFirstNameNumbers
+  4.5** setNameLastNameNumbers
+  4.6** setNameMiddleNameNumbers
+  4.7 setNameEmptyFullName
+  4.8 setNameEmptyFirstName
+  4.9 setNameEmptyLastName
+  4.10 setNameOnlyLastName
+  4.11 setNameOnlyFirstName
+  4.12 setNameOnlyMiddleName
+  4.13 setNameOnlyLastAndMiddleName
+  4.14 setNameOnlyFirstAndMiddleName
+  4.15 setNameAndIsInSearch
+  4.16 incorrectAccessToken
 ```
+*There is no definition of API's behaviour of sending incorrect value of "is_in_search". That behaviour refered to positive cases by guess: any "is_in_search" values are equals to "false", except of "true".
+
+**There is no definition of API's behaviour of sending incorrect values of first_name, last_name and middle_name. But editing that fields at page http://hh.ru/applicant/settings prints note: "Only letters and hyphen", so this behaviour can be either relate to positive or negative cases, depends on API's requirements of checking values at API client.
 
 Tests description (in Russian):
 ```
