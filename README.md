@@ -1,7 +1,12 @@
 # hhapi
 HeadHunter.ru API Testing
 
-Automated tests for API.me method and OAuth tools
+API documentation:
+- https://github.com/hhru/api/blob/master/docs/general.md
+- https://github.com/hhru/api/blob/master/docs/authorization.md
+- https://github.com/hhru/api/blob/master/docs/me.md
+
+Automated tests for API.me method and OAuth authorization tools
 
 Using:
 - Maven: build automation tool
@@ -18,6 +23,7 @@ Tests list:
 - incorrectAccessToken
 3) TestPostPositive
 - setNameFull
+- setNameFullPunctuationMark
 - setNameFirstAndLast
 - setIsInSearchTrue
 - setIsInSearchFalse
@@ -52,11 +58,12 @@ Tests description (in Russian):
 2. Редактирование информации
   2.1 Положительные тесты
     2.1.1 Редактирование фамилии, имени и отчества
-    2.1.2 Редактирование фамилии и имени (отчество пустое)
-    2.1.3 Редактирование флага "ишу/не ищу работу" = true
-    2.1.4 Редактирование флага "ишу/не ищу работу" = false
-    2.1.5 Передача некорректного строкового значения во флаг "ищу/не ищу работу"
-    2.1.6 Передача численного значения во флаг "ищу/не ищу работу"
+    2.1.2 Редактирование фамилии, имени и отчества (значения со знаком "-")
+    2.1.3 Редактирование фамилии и имени (отчество пустое)
+    2.1.4 Редактирование флага "ишу/не ищу работу" = true
+    2.1.5 Редактирование флага "ишу/не ищу работу" = false
+    2.1.6 Передача некорректного строкового значения во флаг "ищу/не ищу работу"
+    2.1.7 Передача численного значения во флаг "ищу/не ищу работу"
   2.2 Отрицательные тесты
     2.2.1 Некорректное значение имени (знаки кроме "-")
     2.2.2 Некорректное значение фамилии (знаки кроме "-")
