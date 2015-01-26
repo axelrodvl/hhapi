@@ -572,8 +572,8 @@ jQuery.cookie = function(name, value, options) {
 <body>
 <div id="container">
 <div id="header">
-<div class="time">8.58 s</div>
-<h1>Tests: <strong><span class="total">18 total, </span><span class="failed">8 failed, </span><span class="passed">10 passed</span></strong>
+<div class="time">11.51 s</div>
+<h1>Tests: <strong><span class="total">24 total, </span><span class="failed">14 failed, </span><span class="passed">10 passed</span></strong>
 </h1>
 <div id="treecontrol">
 <ul>
@@ -591,209 +591,233 @@ jQuery.cookie = function(name, value, options) {
 <ul id="tree">
 <li xmlns="" class="level top failed open">
 <span><em class="time">
-<div class="time">8.58 s</div>
+<div class="time">11.51 s</div>
 </em>&lt;default package&gt;</span>
 <ul>
-<li class="level suite open">
-<span><em class="time">
-<div class="time">2.59 s</div>
-</em>TestGetPositive</span>
-<ul>
-<li class="level test">
-<span><em class="time">
-<div class="time">2.59 s</div>
-</em><em class="status">passed</em>getInfo</span>
-</li>
-</ul>
-</li>
 <li class="level suite failed open">
 <span><em class="time">
-<div class="time">4.17 s</div>
+<div class="time">9.20 s</div>
 </em>TestPostNegative</span>
 <ul>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">337 ms</div>
+<div class="time">1.20 s</div>
+</em><em class="status">failed</em>setNameFirstNameNumbers</span>
+<ul>
+<li class="text">
+<span class="stderr">org.junit.ComparisonFailure: <br/></span>
+</li>
+<li class="text">
+<span class="stdout">Expected :<br/></span>
+</li>
+<li class="text">
+<span class="stderr">Иван<br/></span>
+</li>
+<li class="text">
+<span class="stdout">Actual   :<br/></span>
+</li>
+<li class="text">
+<span class="stderr">123456<br/> <br/>	at org.junit.Assert.assertEquals(Assert.java:125)<br/>	at org.junit.Assert.assertEquals(Assert.java:147)<br/>	at TestPostNegative.setNameFirstNameNumbers(TestPostNegative.java:196)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">335 ms</div>
+</em><em class="status">failed</em>setNameLastNameNumbers</span>
+<ul>
+<li class="text">
+<span class="stderr">org.junit.ComparisonFailure: <br/></span>
+</li>
+<li class="text">
+<span class="stdout">Expected :<br/></span>
+</li>
+<li class="text">
+<span class="stderr">Селезнев<br/></span>
+</li>
+<li class="text">
+<span class="stdout">Actual   :<br/></span>
+</li>
+<li class="text">
+<span class="stderr">123456<br/> <br/>	at org.junit.Assert.assertEquals(Assert.java:125)<br/>	at org.junit.Assert.assertEquals(Assert.java:147)<br/>	at TestPostNegative.setNameLastNameNumbers(TestPostNegative.java:235)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">585 ms</div>
+</em><em class="status">failed</em>setNameMiddleNameNumbers</span>
+<ul>
+<li class="text">
+<span class="stderr">org.junit.ComparisonFailure: <br/></span>
+</li>
+<li class="text">
+<span class="stdout">Expected :<br/></span>
+</li>
+<li class="text">
+<span class="stderr">Иосифович<br/></span>
+</li>
+<li class="text">
+<span class="stdout">Actual   :<br/></span>
+</li>
+<li class="text">
+<span class="stderr">123456<br/> <br/>	at org.junit.Assert.assertEquals(Assert.java:125)<br/>	at org.junit.Assert.assertEquals(Assert.java:147)<br/>	at TestPostNegative.setNameMiddleNameNumbers(TestPostNegative.java:274)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">1.16 s</div>
+</em><em class="status">failed</em>setNameEmptyFullName</span>
+<ul>
+<li class="text">
+<span class="stderr">java.lang.AssertionError<br/>	at org.junit.Assert.fail(Assert.java:92)<br/>	at org.junit.Assert.assertTrue(Assert.java:43)<br/>	at org.junit.Assert.assertNotNull(Assert.java:526)<br/>	at org.junit.Assert.assertNotNull(Assert.java:537)<br/>	at TestPostNegative.setNameEmptyFullName(TestPostNegative.java:309)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">298 ms</div>
+</em><em class="status">failed</em>setNameEmptyFirstName</span>
+<ul>
+<li class="text">
+<span class="stderr">java.lang.AssertionError<br/>	at org.junit.Assert.fail(Assert.java:92)<br/>	at org.junit.Assert.assertTrue(Assert.java:43)<br/>	at org.junit.Assert.assertNotNull(Assert.java:526)<br/>	at org.junit.Assert.assertNotNull(Assert.java:537)<br/>	at TestPostNegative.setNameEmptyFirstName(TestPostNegative.java:344)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">819 ms</div>
+</em><em class="status">failed</em>setNameEmptyLastName</span>
+<ul>
+<li class="text">
+<span class="stderr">java.lang.AssertionError<br/>	at org.junit.Assert.fail(Assert.java:92)<br/>	at org.junit.Assert.assertTrue(Assert.java:43)<br/>	at org.junit.Assert.assertNotNull(Assert.java:526)<br/>	at org.junit.Assert.assertNotNull(Assert.java:537)<br/>	at TestPostNegative.setNameEmptyLastName(TestPostNegative.java:377)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">287 ms</div>
 </em><em class="status">failed</em>setNameOnlyLastName</span>
 <ul>
 <li class="text">
-<span class="stderr">java.lang.AssertionError: <br/></span>
-</li>
-<li class="text">
-<span class="stdout">Expected :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">400<br/></span>
-</li>
-<li class="text">
-<span class="stdout">Actual   :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">204<br/> <br/>	at org.junit.Assert.fail(Assert.java:93)<br/>	at org.junit.Assert.failNotEquals(Assert.java:647)<br/>	at org.junit.Assert.assertEquals(Assert.java:128)<br/>	at org.junit.Assert.assertEquals(Assert.java:472)<br/>	at org.junit.Assert.assertEquals(Assert.java:456)<br/>	at TestPostNegative.setNameOnlyLastName(TestPostNegative.java:170)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+<span class="stderr">java.lang.AssertionError<br/>	at org.junit.Assert.fail(Assert.java:92)<br/>	at org.junit.Assert.assertTrue(Assert.java:43)<br/>	at org.junit.Assert.assertNotNull(Assert.java:526)<br/>	at org.junit.Assert.assertNotNull(Assert.java:537)<br/>	at TestPostNegative.setNameOnlyLastName(TestPostNegative.java:411)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">315 ms</div>
+<div class="time">461 ms</div>
 </em><em class="status">failed</em>setNameOnlyFirstName</span>
 <ul>
 <li class="text">
-<span class="stderr">java.lang.AssertionError: <br/></span>
-</li>
-<li class="text">
-<span class="stdout">Expected :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">400<br/></span>
-</li>
-<li class="text">
-<span class="stdout">Actual   :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">204<br/> <br/>	at org.junit.Assert.fail(Assert.java:93)<br/>	at org.junit.Assert.failNotEquals(Assert.java:647)<br/>	at org.junit.Assert.assertEquals(Assert.java:128)<br/>	at org.junit.Assert.assertEquals(Assert.java:472)<br/>	at org.junit.Assert.assertEquals(Assert.java:456)<br/>	at TestPostNegative.setNameOnlyFirstName(TestPostNegative.java:205)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+<span class="stderr">java.lang.AssertionError<br/>	at org.junit.Assert.fail(Assert.java:92)<br/>	at org.junit.Assert.assertTrue(Assert.java:43)<br/>	at org.junit.Assert.assertNotNull(Assert.java:526)<br/>	at org.junit.Assert.assertNotNull(Assert.java:537)<br/>	at TestPostNegative.setNameOnlyFirstName(TestPostNegative.java:445)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">279 ms</div>
+<div class="time">654 ms</div>
 </em><em class="status">failed</em>setNameOnlyMiddleName</span>
 <ul>
 <li class="text">
-<span class="stderr">java.lang.AssertionError: <br/></span>
-</li>
-<li class="text">
-<span class="stdout">Expected :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">400<br/></span>
-</li>
-<li class="text">
-<span class="stdout">Actual   :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">204<br/> <br/>	at org.junit.Assert.fail(Assert.java:93)<br/>	at org.junit.Assert.failNotEquals(Assert.java:647)<br/>	at org.junit.Assert.assertEquals(Assert.java:128)<br/>	at org.junit.Assert.assertEquals(Assert.java:472)<br/>	at org.junit.Assert.assertEquals(Assert.java:456)<br/>	at TestPostNegative.setNameOnlyMiddleName(TestPostNegative.java:240)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+<span class="stderr">java.lang.AssertionError<br/>	at org.junit.Assert.fail(Assert.java:92)<br/>	at org.junit.Assert.assertTrue(Assert.java:43)<br/>	at org.junit.Assert.assertNotNull(Assert.java:526)<br/>	at org.junit.Assert.assertNotNull(Assert.java:537)<br/>	at TestPostNegative.setNameOnlyMiddleName(TestPostNegative.java:480)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">474 ms</div>
+<div class="time">337 ms</div>
 </em><em class="status">failed</em>setNameOnlyLastAndMiddleName</span>
 <ul>
 <li class="text">
-<span class="stderr">java.lang.AssertionError: <br/></span>
-</li>
-<li class="text">
-<span class="stdout">Expected :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">400<br/></span>
-</li>
-<li class="text">
-<span class="stdout">Actual   :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">204<br/> <br/>	at org.junit.Assert.fail(Assert.java:93)<br/>	at org.junit.Assert.failNotEquals(Assert.java:647)<br/>	at org.junit.Assert.assertEquals(Assert.java:128)<br/>	at org.junit.Assert.assertEquals(Assert.java:472)<br/>	at org.junit.Assert.assertEquals(Assert.java:456)<br/>	at TestPostNegative.setNameOnlyLastAndMiddleName(TestPostNegative.java:275)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">359 ms</div>
-</em><em class="status">failed</em>setNameOnlyFirstAndMiddleName</span>
-<ul>
-<li class="text">
-<span class="stderr">java.lang.AssertionError: <br/></span>
-</li>
-<li class="text">
-<span class="stdout">Expected :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">400<br/></span>
-</li>
-<li class="text">
-<span class="stdout">Actual   :<br/></span>
-</li>
-<li class="text">
-<span class="stderr">204<br/> <br/>	at org.junit.Assert.fail(Assert.java:93)<br/>	at org.junit.Assert.failNotEquals(Assert.java:647)<br/>	at org.junit.Assert.assertEquals(Assert.java:128)<br/>	at org.junit.Assert.assertEquals(Assert.java:472)<br/>	at org.junit.Assert.assertEquals(Assert.java:456)<br/>	at TestPostNegative.setNameOnlyFirstAndMiddleName(TestPostNegative.java:310)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+<span class="stderr">java.lang.AssertionError<br/>	at org.junit.Assert.fail(Assert.java:92)<br/>	at org.junit.Assert.assertTrue(Assert.java:43)<br/>	at org.junit.Assert.assertNotNull(Assert.java:526)<br/>	at org.junit.Assert.assertNotNull(Assert.java:537)<br/>	at TestPostNegative.setNameOnlyLastAndMiddleName(TestPostNegative.java:516)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">1.21 s</div>
+<div class="time">408 ms</div>
 </em><em class="status">passed</em>setNameAndIsInSearch</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">282 ms</div>
+<div class="time">635 ms</div>
 </em><em class="status">passed</em>incorrectAccessToken</span>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">295 ms</div>
-</em><em class="status">failed</em>setNameEmptyFullName</span>
+<div class="time">338 ms</div>
+</em><em class="status">failed</em>setNameFirstNamePunctuationMarks</span>
 <ul>
 <li class="text">
-<span class="stderr">java.lang.AssertionError: <br/></span>
+<span class="stderr">org.junit.ComparisonFailure: <br/></span>
 </li>
 <li class="text">
 <span class="stdout">Expected :<br/></span>
 </li>
 <li class="text">
-<span class="stderr">400<br/></span>
+<span class="stderr">Иван<br/></span>
 </li>
 <li class="text">
 <span class="stdout">Actual   :<br/></span>
 </li>
 <li class="text">
-<span class="stderr">204<br/> <br/>	at org.junit.Assert.fail(Assert.java:93)<br/>	at org.junit.Assert.failNotEquals(Assert.java:647)<br/>	at org.junit.Assert.assertEquals(Assert.java:128)<br/>	at org.junit.Assert.assertEquals(Assert.java:472)<br/>	at org.junit.Assert.assertEquals(Assert.java:456)<br/>	at TestPostNegative.setNameEmptyFullName(TestPostNegative.java:69)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+<span class="stderr">!@#$%^<br/> <br/>	at org.junit.Assert.assertEquals(Assert.java:125)<br/>	at org.junit.Assert.assertEquals(Assert.java:147)<br/>	at TestPostNegative.setNameFirstNamePunctuationMarks(TestPostNegative.java:79)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">311 ms</div>
-</em><em class="status">failed</em>setNameEmptyFirstName</span>
+<div class="time">708 ms</div>
+</em><em class="status">failed</em>setNameLastNamePunctuationMarks</span>
 <ul>
 <li class="text">
-<span class="stderr">java.lang.AssertionError: <br/></span>
+<span class="stderr">org.junit.ComparisonFailure: <br/></span>
 </li>
 <li class="text">
 <span class="stdout">Expected :<br/></span>
 </li>
 <li class="text">
-<span class="stderr">400<br/></span>
+<span class="stderr">Селезнев<br/></span>
 </li>
 <li class="text">
 <span class="stdout">Actual   :<br/></span>
 </li>
 <li class="text">
-<span class="stderr">204<br/> <br/>	at org.junit.Assert.fail(Assert.java:93)<br/>	at org.junit.Assert.failNotEquals(Assert.java:647)<br/>	at org.junit.Assert.assertEquals(Assert.java:128)<br/>	at org.junit.Assert.assertEquals(Assert.java:472)<br/>	at org.junit.Assert.assertEquals(Assert.java:456)<br/>	at TestPostNegative.setNameEmptyFirstName(TestPostNegative.java:104)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+<span class="stderr">!@#$%^<br/> <br/>	at org.junit.Assert.assertEquals(Assert.java:125)<br/>	at org.junit.Assert.assertEquals(Assert.java:147)<br/>	at TestPostNegative.setNameLastNamePunctuationMarks(TestPostNegative.java:118)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">306 ms</div>
-</em><em class="status">failed</em>setNameEmptyLastName</span>
+<div class="time">670 ms</div>
+</em><em class="status">failed</em>setNameMiddleNamePunctuationMarks</span>
 <ul>
 <li class="text">
-<span class="stderr">java.lang.AssertionError: <br/></span>
+<span class="stderr">org.junit.ComparisonFailure: <br/></span>
 </li>
 <li class="text">
 <span class="stdout">Expected :<br/></span>
 </li>
 <li class="text">
-<span class="stderr">400<br/></span>
+<span class="stderr">Иосифович<br/></span>
 </li>
 <li class="text">
 <span class="stdout">Actual   :<br/></span>
 </li>
 <li class="text">
-<span class="stderr">204<br/> <br/>	at org.junit.Assert.fail(Assert.java:93)<br/>	at org.junit.Assert.failNotEquals(Assert.java:647)<br/>	at org.junit.Assert.assertEquals(Assert.java:128)<br/>	at org.junit.Assert.assertEquals(Assert.java:472)<br/>	at org.junit.Assert.assertEquals(Assert.java:456)<br/>	at TestPostNegative.setNameEmptyLastName(TestPostNegative.java:137)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+<span class="stderr">!@#$%^<br/> <br/>	at org.junit.Assert.assertEquals(Assert.java:125)<br/>	at org.junit.Assert.assertEquals(Assert.java:147)<br/>	at TestPostNegative.setNameMiddleNamePunctuationMarks(TestPostNegative.java:157)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">302 ms</div>
+</em><em class="status">failed</em>setNameOnlyFirstAndMiddleName</span>
+<ul>
+<li class="text">
+<span class="stderr">java.lang.AssertionError<br/>	at org.junit.Assert.fail(Assert.java:92)<br/>	at org.junit.Assert.assertTrue(Assert.java:43)<br/>	at org.junit.Assert.assertNotNull(Assert.java:526)<br/>	at org.junit.Assert.assertNotNull(Assert.java:537)<br/>	at TestPostNegative.setNameOnlyFirstAndMiddleName(TestPostNegative.java:550)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:24)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:157)<br/>	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:211)<br/>	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:67)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)<br/></span>
 </li>
 </ul>
 </li>
@@ -801,50 +825,62 @@ jQuery.cookie = function(name, value, options) {
 </li>
 <li class="level suite open">
 <span><em class="time">
-<div class="time">1.63 s</div>
+<div class="time">1.92 s</div>
 </em>TestPostPositive</span>
 <ul>
 <li class="level test">
 <span><em class="time">
-<div class="time">265 ms</div>
-</em><em class="status">passed</em>setIsInSearchIncorrectStringNumbers</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">413 ms</div>
-</em><em class="status">passed</em>setNameFull</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">204 ms</div>
+<div class="time">211 ms</div>
 </em><em class="status">passed</em>setNameFirstAndLast</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">275 ms</div>
+<div class="time">220 ms</div>
 </em><em class="status">passed</em>setIsInSearchTrue</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">169 ms</div>
+<div class="time">648 ms</div>
 </em><em class="status">passed</em>setIsInSearchFalse</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">307 ms</div>
+<div class="time">176 ms</div>
 </em><em class="status">passed</em>setIsInSearchIncorrectString</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">449 ms</div>
+</em><em class="status">passed</em>setIsInSearchIncorrectStringNumbers</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">212 ms</div>
+</em><em class="status">passed</em>setNameFull</span>
 </li>
 </ul>
 </li>
 <li class="level suite open">
 <span><em class="time">
-<div class="time">191 ms</div>
+<div class="time">198 ms</div>
 </em>TestGetNegative</span>
 <ul>
 <li class="level test">
 <span><em class="time">
-<div class="time">191 ms</div>
+<div class="time">198 ms</div>
 </em><em class="status">passed</em>incorrectAccessToken</span>
+</li>
+</ul>
+</li>
+<li class="level suite open">
+<span><em class="time">
+<div class="time">195 ms</div>
+</em>TestGetPositive</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">195 ms</div>
+</em><em class="status">passed</em>getInfo</span>
 </li>
 </ul>
 </li>
@@ -854,7 +890,7 @@ jQuery.cookie = function(name, value, options) {
 </div>
 </div>
 <div id="footer">
-<p>Generated by IntelliJ IDEA on 1/26/15 1:51 PM</p>
+<p>Generated by IntelliJ IDEA on 26.01.15 17:13</p>
 </div>
 </body>
 </html>

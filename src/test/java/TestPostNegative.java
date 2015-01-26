@@ -12,16 +12,22 @@ import static org.junit.Assert.*;
 /*
 2. Редактирование информации
         2.2 Отрицательные тесты
-        + 2.2.1 Пустое ФИО
-        + 2.2.2 Пустое имя
-        + 2.2.3 Пустая фамилия
-        + 2.2.4 Только фамилия
-        + 2.2.5 Только имя
-        + 2.2.6 Только отчество
-        + 2.2.7 Только фамилия и отчество
-        + 2.2.8 Только имя и отчество
-        + 2.2.9 Редактирование имени вместе с флагом "ищу/не ищу работу"
-        + 2.2.10 Попытка доступа с некорректным accessToken
+            2.2.1 Некорректное значение имени (знаки кроме "-")
+            2.2.2 Некорректное значение фамилии (знаки кроме "-")
+            2.2.3 Некорректное значение отчества (знаки кроме "-")
+            2.2.4 Некорректное значение имени (числа)
+            2.2.5 Некорректное значение фамилии (числа)
+            2.2.6 Некорректное значение отчества (числа)
+            2.2.7 Пустое ФИО
+            2.2.8 Пустое имя
+            2.2.9 Пустая фамилия
+            2.2.10 Только фамилия
+            2.2.11 Только имя
+            2.2.12 Только отчество
+            2.2.13 Только фамилия и отчество
+            2.2.14 Только имя и отчество
+            2.2.15 Редактирование имени вместе с флагом "ищу/не ищу работу"
+            2.2.16 Попытка доступа с некорректным accessToken
 */
 
 public class TestPostNegative {
@@ -38,7 +44,241 @@ public class TestPostNegative {
     }
 
     /**
-     * 2.2.1 Пустое ФИО
+     * 2.2.1 Некорректное значение имени (знаки кроме "-")
+     */
+    @Test
+    public void setNameFirstNamePunctuationMarks() throws Exception {
+        // Test data
+        final String expectedLastName = "Селезнев";
+        final String expectedFirstName = "Иван";
+        final String expectedMiddleName = "Иосифович";
+
+        final String badArgumentLastName = "Иванов";
+        final String badArgumentFirstName = "!@#$%^&*()-";
+        final String badArgumentMiddleName = "Петрович";
+
+        // Test action
+        // Setting correct name
+        Me.post(user,
+                "last_name=" + expectedLastName +
+                "&first_name=" + expectedFirstName +
+                "&middle_name=" + expectedMiddleName);
+        // Trying to set incorrect name
+        Response response = Me.post(user,
+                "last_name=" + badArgumentLastName +
+                "&first_name=" + badArgumentFirstName +
+                "&middle_name=" + badArgumentMiddleName);
+
+        // Getting name, which shouldn't be updated
+        // while incorrect request and be equal
+        // to already sent correct name
+        Response apiGetResponse = Me.get(user);
+        Employee employee = new Employee(apiGetResponse);
+
+        // Test assertions
+        assertEquals(expectedFirstName, employee.first_name);
+        assertEquals(expectedLastName, employee.last_name);
+        assertEquals(expectedMiddleName, employee.middle_name);
+        assertEquals(400, response.getCode());
+    }
+
+    /**
+     * 2.2.2 Некорректное значение фамилии (знаки кроме "-")
+     */
+    @Test
+    public void setNameLastNamePunctuationMarks() throws Exception {
+        // Test data
+        final String expectedLastName = "Селезнев";
+        final String expectedFirstName = "Иван";
+        final String expectedMiddleName = "Иосифович";
+
+        final String badArgumentLastName = "!@#$%^&*()-";
+        final String badArgumentFirstName = "Сергей";
+        final String badArgumentMiddleName = "Петрович";
+
+        // Test action
+        // Setting correct name
+        Me.post(user,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
+        // Trying to set incorrect name
+        Response response = Me.post(user,
+                "last_name=" + badArgumentLastName +
+                "&first_name=" + badArgumentFirstName +
+                "&middle_name=" + badArgumentMiddleName);
+
+        // Getting name, which shouldn't be updated
+        // while incorrect request and be equal
+        // to already sent correct name
+        Response apiGetResponse = Me.get(user);
+        Employee employee = new Employee(apiGetResponse);
+
+        // Test assertions
+        assertEquals(expectedLastName, employee.last_name);
+        assertEquals(expectedFirstName, employee.first_name);
+        assertEquals(expectedMiddleName, employee.middle_name);
+        assertEquals(400, response.getCode());
+    }
+
+    /**
+     * 2.2.3 Некорректное значение отчества (знаки кроме "-")
+     */
+    @Test
+    public void setNameMiddleNamePunctuationMarks() throws Exception {
+        // Test data
+        final String expectedLastName = "Селезнев";
+        final String expectedFirstName = "Иван";
+        final String expectedMiddleName = "Иосифович";
+
+        final String badArgumentLastName = "Иванов";
+        final String badArgumentFirstName = "Сергей";
+        final String badArgumentMiddleName = "!@#$%^&*()-";
+
+        // Test action
+        // Setting correct name
+        Me.post(user,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
+        // Trying to set incorrect name
+        Response response = Me.post(user,
+                "last_name=" + badArgumentLastName +
+                        "&first_name=" + badArgumentFirstName +
+                        "&middle_name=" + badArgumentMiddleName);
+
+        // Getting name, which shouldn't be updated
+        // while incorrect request and be equal
+        // to already sent correct name
+        Response apiGetResponse = Me.get(user);
+        Employee employee = new Employee(apiGetResponse);
+
+        // Test assertions
+        assertEquals(expectedMiddleName, employee.middle_name);
+        assertEquals(expectedFirstName, employee.first_name);
+        assertEquals(expectedLastName, employee.last_name);
+        assertEquals(400, response.getCode());
+    }
+
+    /**
+     * 2.2.4 Некорректное значение имени (числа)
+     */
+    @Test
+    public void setNameFirstNameNumbers() throws Exception {
+        // Test data
+        final String expectedLastName = "Селезнев";
+        final String expectedFirstName = "Иван";
+        final String expectedMiddleName = "Иосифович";
+
+        final String badArgumentLastName = "Иванов";
+        final String badArgumentFirstName = "123456";
+        final String badArgumentMiddleName = "Петрович";
+
+        // Test action
+        // Setting correct name
+        Me.post(user,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
+        // Trying to set incorrect name
+        Response response = Me.post(user,
+                "last_name=" + badArgumentLastName +
+                        "&first_name=" + badArgumentFirstName +
+                        "&middle_name=" + badArgumentMiddleName);
+
+        // Getting name, which shouldn't be updated
+        // while incorrect request and be equal
+        // to already sent correct name
+        Response apiGetResponse = Me.get(user);
+        Employee employee = new Employee(apiGetResponse);
+
+        // Test assertions
+        assertEquals(expectedFirstName, employee.first_name);
+        assertEquals(expectedLastName, employee.last_name);
+        assertEquals(expectedMiddleName, employee.middle_name);
+        assertEquals(400, response.getCode());
+    }
+
+    /**
+     * 2.2.5 Некорректное значение фамилии (числа)
+     */
+    @Test
+    public void setNameLastNameNumbers() throws Exception {
+        // Test data
+        final String expectedLastName = "Селезнев";
+        final String expectedFirstName = "Иван";
+        final String expectedMiddleName = "Иосифович";
+
+        final String badArgumentLastName = "123456";
+        final String badArgumentFirstName = "Сергей";
+        final String badArgumentMiddleName = "Петрович";
+
+        // Test action
+        // Setting correct name
+        Me.post(user,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
+        // Trying to set incorrect name
+        Response response = Me.post(user,
+                "last_name=" + badArgumentLastName +
+                        "&first_name=" + badArgumentFirstName +
+                        "&middle_name=" + badArgumentMiddleName);
+
+        // Getting name, which shouldn't be updated
+        // while incorrect request and be equal
+        // to already sent correct name
+        Response apiGetResponse = Me.get(user);
+        Employee employee = new Employee(apiGetResponse);
+
+        // Test assertions
+        assertEquals(expectedLastName, employee.last_name);
+        assertEquals(expectedFirstName, employee.first_name);
+        assertEquals(expectedMiddleName, employee.middle_name);
+        assertEquals(400, response.getCode());
+    }
+
+    /**
+     * 2.2.6 Некорректное значение отчества (числа)
+     */
+    @Test
+    public void setNameMiddleNameNumbers() throws Exception {
+        // Test data
+        final String expectedLastName = "Селезнев";
+        final String expectedFirstName = "Иван";
+        final String expectedMiddleName = "Иосифович";
+
+        final String badArgumentLastName = "Иванов";
+        final String badArgumentFirstName = "Сергей";
+        final String badArgumentMiddleName = "123456";
+
+        // Test action
+        // Setting correct name
+        Me.post(user,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
+        // Trying to set incorrect name
+        Response response = Me.post(user,
+                "last_name=" + badArgumentLastName +
+                        "&first_name=" + badArgumentFirstName +
+                        "&middle_name=" + badArgumentMiddleName);
+
+        // Getting name, which shouldn't be updated
+        // while incorrect request and be equal
+        // to already sent correct name
+        Response apiGetResponse = Me.get(user);
+        Employee employee = new Employee(apiGetResponse);
+
+        // Test assertions
+        assertEquals(expectedMiddleName, employee.middle_name);
+        assertEquals(expectedFirstName, employee.first_name);
+        assertEquals(expectedLastName, employee.last_name);
+        assertEquals(400, response.getCode());
+    }
+
+    /**
+     * 2.2.7 Пустое ФИО
      */
     @Test
     public void setNameEmptyFullName() throws Exception {
@@ -66,14 +306,14 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertNotNull(employee.first_name);
         assertNotNull(employee.middle_name);
         assertNotNull(employee.last_name);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.2 Пустое имя
+     * 2.2.8 Пустое имя
      */
     @Test
     public void setNameEmptyFirstName() throws Exception {
@@ -101,12 +341,12 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertNotNull(employee.first_name);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.3 Пустая фамилия
+     * 2.2.9 Пустая фамилия
      */
     @Test
     public void setNameEmptyLastName() throws Exception {
@@ -134,12 +374,12 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertNotNull(employee.last_name);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.4 Только фамилия
+     * 2.2.10 Только фамилия
      */
     @Test
     public void setNameOnlyLastName() throws Exception {
@@ -167,14 +407,14 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertNotNull(employee.last_name);
         assertNotNull(employee.first_name);
         assertNotNull(employee.middle_name);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.5 Только имя
+     * 2.2.11 Только имя
      */
     @Test
     public void setNameOnlyFirstName() throws Exception {
@@ -202,14 +442,14 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertNotNull(employee.last_name);
         assertNotNull(employee.first_name);
         assertNotNull(employee.middle_name);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.6 Только отчество
+     * 2.2.12 Только отчество
      */
     @Test
     public void setNameOnlyMiddleName() throws Exception {
@@ -237,14 +477,14 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertNotNull(employee.last_name);
         assertNotNull(employee.first_name);
         assertNotNull(employee.middle_name);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.7 Только фамилия и отчество
+     * 2.2.13 Только фамилия и отчество
      */
     @Test
     public void setNameOnlyLastAndMiddleName() throws Exception {
@@ -272,14 +512,14 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertNotNull(employee.last_name);
         assertNotNull(employee.first_name);
         assertNotNull(employee.middle_name);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.8 Только имя и отчество
+     * 2.2.14 Только имя и отчество
      */
     @Test
     public void setNameOnlyFirstAndMiddleName() throws Exception {
@@ -307,14 +547,14 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertNotNull(employee.last_name);
         assertNotNull(employee.first_name);
         assertNotNull(employee.middle_name);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.9 Редактирование имени вместе с флагом "ищу/не ищу работу"
+     * 2.2.15 Редактирование имени вместе с флагом "ищу/не ищу работу"
      */
     @Test
     public void setNameAndIsInSearch() throws Exception {
@@ -365,16 +605,16 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(400, response.getCode());
         assertEquals(expectedError, error);
         assertEquals(employee.first_name, expectedFirstName);
         assertEquals(employee.last_name, expectedLastName);
         assertEquals(employee.middle_name, expectedMiddleName);
         assertTrue(employee.is_in_search);
+        assertEquals(400, response.getCode());
     }
 
     /**
-     * 2.2.10 Попытка доступа с некорректным accessToken
+     * 2.2.16 Попытка доступа с некорректным accessToken
      */
     @Test
     public void incorrectAccessToken() throws Exception {
@@ -415,10 +655,10 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(403, response.getCode());
         assertEquals(expectedError, error);
         assertEquals(employee.first_name, expectedFirstName);
         assertEquals(employee.last_name, expectedLastName);
         assertEquals(employee.middle_name, expectedMiddleName);
+        assertEquals(403, response.getCode());
     }
 }
