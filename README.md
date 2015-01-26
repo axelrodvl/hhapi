@@ -59,7 +59,33 @@ Tests list:
 
 **There is no definition of API's behaviour of sending incorrect values of first_name, last_name and middle_name. But editing that fields at page http://hh.ru/applicant/settings prints note: "Only letters and hyphen", so this behaviour can be either relate to positive or negative cases, depends on API's requirements of checking values at API client.
 
-Tests description (in Russian):
+In Russian:
+
+Тесты API HeadHunter.ru
+
+Документация по API:
+- https://github.com/hhru/api/blob/master/docs/general.md
+- https://github.com/hhru/api/blob/master/docs/authorization.md
+- https://github.com/hhru/api/blob/master/docs/me.md
+
+Используется:
+- Maven: средство сборки проекта
+- JUnit: создание тестов
+- Apache Oltu: создание запросов к OAuth
+- Selenium: работа с веб-сайтом
+- Google Simple JSON: обработка JSON
+
+Автоматизированные тесты для метода /me API и средства OAuth авторизации для доступа к API.
+
+Класс API.Authorization.java используется для получения Access Token для API.
+Токен может быть установлен двумя способами (в конструкторе класса):
+- по логину/паролю пользователя автоматически (приложение откроет страницу авторизации, введет необходимые данные и предоставит доступ приложения к данным пользователя).
+- простая установка; токен имеет значение expire, позволяющее использовать его около 2 недель, поэтому для целей тестирования возможно единовременное получение токена и простое его проставление, без открытия сайта и взаимодействия с сервером OAuth.
+
+Некоторые тест-кейсы могут потребовать наличия бинарного файла ChromeDriver для получения токена.
+Пожалуйста, посмотрите: https://sites.google.com/a/chromium.org/chromedriver/downloads.
+
+Описание тестов:
 ```
 1. Получение информации
   1.1 Положительные тесты
