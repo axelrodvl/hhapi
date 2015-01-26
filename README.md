@@ -11,6 +11,7 @@ Using:
 - Google Simple JSON: JSON handling
 
 Tests list:
+```
 1) TestGetPositive
 - getInfo
 2) TestGetNegative
@@ -33,9 +34,10 @@ Tests list:
 - setNameOnlyFirstAndMiddleName
 - setNameAndIsInSearch
 - incorrectAccessToken
+```
 
 Tests description (in Russian):
-`
+```
 1. Получение информации
   1.1 Положительные тесты
     1.1.1 Получение информации о пользователе (соискателе)
@@ -60,4 +62,4 @@ Tests description (in Russian):
     2.2.8 Только имя и отчество
     2.2.9 Редактирование имени вместе с флагом "ищу/не ищу работу"
     2.2.10 Попытка доступа с некорректным accessToken
-`
+```
