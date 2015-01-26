@@ -8,10 +8,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+/**
+ * Class for making requests at https://api.hh.ru/me
+ */
 public class Me {
     private static final String API_URI = "https://api.hh.ru/me";
     public static final String USER_AGENT = "axelrodvlTest/1.0 (axelrodvl@gmail.com)";
 
+    /**
+     * Making get request without params
+     * @param auth Authorization, required to make requests
+     * @return Response object (response body and code)
+     * @throws Exception
+     */
     public static Response get(Authorization auth) throws Exception {
         URL url = new URL(API_URI);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -38,6 +47,13 @@ public class Me {
         return new Response(responseCode, responseBody.toString());
     }
 
+    /**
+     * Making post request with @postParams
+     * @param auth Authorization, required to make requests
+     * @param postParams Request parameters
+     * @return Response object (response body and code)
+     * @throws Exception
+     */
     public static Response post(Authorization auth, String postParams) throws Exception {
         URL url = new URL(API_URI);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -54,14 +70,12 @@ public class Me {
         connection.setDoInput(true);
         connection.setDoOutput(true);
 
-        //Send request
         DataOutputStream wr = new DataOutputStream(
                 connection.getOutputStream ());
         wr.write(postData);
         wr.flush();
         wr.close();
 
-        //Get Response
         int responseCode = connection.getResponseCode();
         InputStream is;
 

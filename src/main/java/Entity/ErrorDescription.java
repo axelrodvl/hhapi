@@ -6,51 +6,21 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import java.util.HashMap;
 
-/*
-{
-  "errors": [
-    {
-      "type": "bad_argument",
-      "value": "first_name"
-    },
-    {
-      "type": "bad_argument",
-      "value": "last_name"
-    },
-    {
-      "type": "bad_argument",
-      "value": "middle_name"
-    },
-    {
-      "type": "bad_argument",
-      "value": "is_in_search"
-    }
-  ],
-  "bad_arguments": [
-    {
-      "name": "first_name",
-      "description": "Conflict with is_in_search."
-    },
-    {
-      "name": "last_name",
-      "description": "Conflict with is_in_search."
-    },
-    {
-      "name": "middle_name",
-      "description": "Conflict with is_in_search."
-    }
-  ],
-  "description": "Conflict with is_in_search.",
-  "bad_argument": "first_name"
-}
-*/
-
+/**
+ * Error description JSON handler
+ * Can be used for creating and comparing errors
+ */
 public class ErrorDescription {
     public HashMap<String, String> errors = null;
     public HashMap<String, String> bad_arguments = null;
     public String description = null;
     public String bad_argument = null;
 
+    /**
+     * Creating ErrorDescription object based on JSON server response
+     * @param response JSON as String
+     * @throws Exception
+     */
     public ErrorDescription(Response response) throws Exception {
         JSONParser parser = new JSONParser();
         JSONObject responseJSON = (JSONObject) parser.parse(response.getBody());
@@ -79,8 +49,16 @@ public class ErrorDescription {
         }
     }
 
+    /**
+     * Creating empty ErrorDescription object
+     */
     public ErrorDescription() {}
 
+    /**
+     * ErrorDescription objects comparison
+     * @param obj
+     * @return
+     */
     public boolean equals(Object obj) {
         if(obj == this)
             return true;
@@ -139,7 +117,5 @@ public class ErrorDescription {
 
             return true;
         }
-
-
     }
 }

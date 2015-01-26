@@ -36,6 +36,12 @@ public class Authorization {
     private Long tokenStartTimeInSec = null;
     private boolean tokenForceSet = false;
 
+    /**
+     * Retrieving authorization based on client's login/password.
+     * @param clientLogin
+     * @param clientPassword
+     * @throws Exception
+     */
     public Authorization(String clientLogin, String clientPassword) throws Exception {
         // Importing ChromeDriver
         System.setProperty(CHROME_DRIVER_PROPERTY, CHROME_DRIVER_NAME);
@@ -44,6 +50,11 @@ public class Authorization {
         setAccessToken(getAuthorizationCode(clientLogin, clientPassword));
     }
 
+    /**
+     * Force set of already taken access token
+     * @param accessToken
+     * @throws Exception
+     */
     public Authorization(String accessToken) throws Exception {
         this.accessToken = accessToken;
         tokenForceSet = true;
@@ -153,6 +164,11 @@ public class Authorization {
         throw new Exception("Access Token is outdated. Check settings of OAuth server.");
     }
 
+    /**
+     * Access token getter
+     * @return Access Token
+     * @throws Exception
+     */
     public String getAccessToken() throws Exception {
         if(!tokenForceSet) {
             Long currentTimeInSec = new Date().getTime() / 1000;

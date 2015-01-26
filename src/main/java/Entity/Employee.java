@@ -4,6 +4,10 @@ import API.Response;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Employee object JSON handler
+ * Can be used for creating employees and getting info about them
+ */
 public class Employee {
     public String id;
     public String resumes_url;
