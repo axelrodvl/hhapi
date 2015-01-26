@@ -7,22 +7,27 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /*
-3. Редактирование информации
-        3.1 Положительные тесты
-        + 3.1.1 Редактирование фамилии, имени и отчества
-        + 3.1.2 Редактирование фамилии и имени (отчество пустое)
-        + 3.1.3 Редактирование флага "ишу/не ищу работу" = true
-        + 3.1.4 Редактирование флага "ишу/не ищу работу" = false
-        + 3.1.5 Передача некорректного строкового значения во флаг "ищу/не ищу работу"
-        + 3.1.6 Передача численного значения во флаг "ищу/не ищу работу"
+2. Редактирование информации
+        2.1 Положительные тесты
+        + 2.1.1 Редактирование фамилии, имени и отчества
+        + 2.1.2 Редактирование фамилии и имени (отчество пустое)
+        + 2.1.3 Редактирование флага "ишу/не ищу работу" = true
+        + 2.1.4 Редактирование флага "ишу/не ищу работу" = false
+        + 2.1.5 Передача некорректного строкового значения во флаг "ищу/не ищу работу"
+        + 2.1.6 Передача численного значения во флаг "ищу/не ищу работу"
 */
 
-public class TestPositive {
+public class TestPostPositive {
     static Authorization user;
 
     @BeforeClass
     public static void authentication() throws Exception {
-        user = new Authorization("axelrodvl.test@gmail.com", "789456123");
+        // Using already taken access token
+        String testAccessToken = "HE408GUDS84KVRG0KMRBT9FPO3QHBH3VOFSRCCT41MEJRRE446KV23EMNCN4JSFC";
+        user = new Authorization(testAccessToken);
+
+        // Creating new access token and retrieving authorization at new user
+        //user = new Authorization("axelrodvl.test@gmail.com", "789456123");
     }
 
     /**
