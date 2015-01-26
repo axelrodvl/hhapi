@@ -15,6 +15,9 @@ Using:
 - Selenium: working with websites
 - Google Simple JSON: JSON handling
 
+Some test cases may require ChromeDriver standalone application in order to get access token for new application user.
+Please, check: https://sites.google.com/a/chromium.org/chromedriver/downloads.
+
 Tests list:
 ```
 1. TestGetPositive
