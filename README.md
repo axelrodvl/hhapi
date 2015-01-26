@@ -1,7 +1,12 @@
 # hhapi
 HeadHunter.ru API Testing
 
-Automated tests for API.me method and OAuth tools
+API documentation:
+- https://github.com/hhru/api/blob/master/docs/general.md
+- https://github.com/hhru/api/blob/master/docs/authorization.md
+- https://github.com/hhru/api/blob/master/docs/me.md
+
+Automated tests for API.me method and OAuth authorization tools
 
 Using:
 - Maven: build automation tool
