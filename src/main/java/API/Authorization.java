@@ -19,7 +19,7 @@ import org.json.simple.parser.*;
 
 public class Authorization {
     // ChromeDriver settings
-    private static final String CHROME_DRIVER_NAME = "chromedriver";
+    private static final String CHROME_DRIVER_NAME = "chromedriver.exe";
     private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
 
     // OAuth 2.0 application info
@@ -75,6 +75,9 @@ public class Authorization {
         // Open web-browser with request URI, providing login/password and getting authorization code
         WebDriver driver = new ChromeDriver();
         driver.get(oAuthClientRequest.getLocationUri());
+
+        TimeUnit.MILLISECONDS.sleep(5000);
+
         driver.findElement(By.xpath(Xpath.LoginWindow.editLogin)).sendKeys(clientLogin);
         driver.findElement(By.xpath(Xpath.LoginWindow.editPassword)).sendKeys(clientPassword);
         driver.findElement(By.xpath(Xpath.LoginWindow.buttonLogin)).click();
@@ -142,6 +145,7 @@ public class Authorization {
         JSONObject responseJSON = (JSONObject) parser.parse(response.toString());
 
         accessToken = (String) responseJSON.get("access_token");
+        System.out.println(accessToken);
         expiresIn = (Long) responseJSON.get("expires_in");
         refreshToken = (String) responseJSON.get("refresh_token");
         String tokenType = (String) responseJSON.get("token_type");

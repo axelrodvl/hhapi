@@ -36,7 +36,7 @@ public class TestPostNegative {
     @BeforeClass
     public static void authentication() throws Exception {
         // Using already taken access token
-        String testAccessToken = "HE408GUDS84KVRG0KMRBT9FPO3QHBH3VOFSRCCT41MEJRRE446KV23EMNCN4JSFC";
+        String testAccessToken = "RQ607OVQJDSDHOSUG0GN3JM2MA9J7LA03C5FKUVTRDIK8SRL477TR8DQU3LA59JF";
         user = new Authorization(testAccessToken);
 
         // Creating new access token and retrieving authorization at new user
@@ -306,9 +306,9 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertNotNull(employee.first_name);
-        assertNotNull(employee.middle_name);
-        assertNotNull(employee.last_name);
+        assertNotNull("Employee first name is null", employee.first_name);
+        assertNotNull("Employee middle name is null", employee.middle_name);
+        assertNotNull("Employee last name is null", employee.last_name);
         assertEquals(400, response.getCode());
     }
 
@@ -341,7 +341,7 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertNotNull(employee.first_name);
+        assertNotNull("Employee first name is null", employee.first_name);
         assertEquals(400, response.getCode());
     }
 
@@ -374,7 +374,7 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertNotNull(employee.last_name);
+        assertNotNull("Employee last name is null", employee.last_name);
         assertEquals(400, response.getCode());
     }
 
@@ -407,9 +407,9 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertNotNull(employee.last_name);
-        assertNotNull(employee.first_name);
-        assertNotNull(employee.middle_name);
+        assertNotNull("Employee last name is null", employee.last_name);
+        assertNotNull("Employee first name is null", employee.first_name);
+        assertNotNull("Employee middle name is null", employee.middle_name);
         assertEquals(400, response.getCode());
     }
 
@@ -442,9 +442,9 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertNotNull(employee.last_name);
-        assertNotNull(employee.first_name);
-        assertNotNull(employee.middle_name);
+        assertNotNull("Employee last name is null", employee.last_name);
+        assertNotNull("Employee first name is null", employee.first_name);
+        assertNotNull("Employee middle name is null", employee.middle_name);
         assertEquals(400, response.getCode());
     }
 
@@ -477,9 +477,9 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertNotNull(employee.last_name);
-        assertNotNull(employee.first_name);
-        assertNotNull(employee.middle_name);
+        assertNotNull("Employee last name is null", employee.last_name);
+        assertNotNull("Employee first name is null", employee.first_name);
+        assertNotNull("Employee middle name is null", employee.middle_name);
         assertEquals(400, response.getCode());
     }
 
@@ -512,9 +512,9 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertNotNull(employee.last_name);
-        assertNotNull(employee.first_name);
-        assertNotNull(employee.middle_name);
+        assertNotNull("Employee last name is null", employee.last_name);
+        assertNotNull("Employee first name is null", employee.first_name);
+        assertNotNull("Employee middle name is null", employee.middle_name);
         assertEquals(400, response.getCode());
     }
 
@@ -547,9 +547,9 @@ public class TestPostNegative {
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertNotNull(employee.last_name);
-        assertNotNull(employee.first_name);
-        assertNotNull(employee.middle_name);
+        assertNotNull("Employee last name is null", employee.last_name);
+        assertNotNull("Employee first name is null", employee.first_name);
+        assertNotNull("Employee middle name is null", employee.middle_name);
         assertEquals(400, response.getCode());
     }
 

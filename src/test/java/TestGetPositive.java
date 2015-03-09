@@ -19,7 +19,7 @@ public class TestGetPositive {
     @BeforeClass
     public static void authentication() throws Exception {
         // Using already taken access token
-        String testAccessToken = "HE408GUDS84KVRG0KMRBT9FPO3QHBH3VOFSRCCT41MEJRRE446KV23EMNCN4JSFC";
+        String testAccessToken = "RQ607OVQJDSDHOSUG0GN3JM2MA9J7LA03C5FKUVTRDIK8SRL477TR8DQU3LA59JF";
         user = new Authorization(testAccessToken);
 
         // Creating new access token and retrieving authorization at new user
