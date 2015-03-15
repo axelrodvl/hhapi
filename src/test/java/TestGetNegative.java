@@ -3,6 +3,7 @@ import API.Me;
 import Entity.Employee;
 import Entity.ErrorDescription;
 import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
+import org.apache.oltu.oauth2.common.OAuth;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -38,22 +39,21 @@ public class TestGetNegative {
         Authorization incorrectUser = new Authorization(incorrectAccessToken);
 
         // Test data
-        ErrorDescription expectedError = new ErrorDescription();
-        expectedError.description = "Forbidden";
-        expectedError.errors = new HashMap<String, String>();
-        expectedError.errors.put("bad_authorization", "oauth");
-
-        // Test action
-        // Trying to get access with incorrect token
-        OAuthResourceResponse response = Me.get(incorrectUser);
-        ErrorDescription error = new ErrorDescription(response);
+        String expectedError = "java.io.IOException: Server returned HTTP response code: 403 for URL: https://api.hh.ru/me?access_token=abc";
 
         // Trying to get access with correct token
         OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
-        // Test assertions
-        assertEquals(403, response.getResponseCode());
-        assertEquals(expectedError, error);
+        // Test action
+        // Trying to get access with incorrect token
+        try {
+            OAuthResourceResponse response = Me.get(incorrectUser);
+        } catch (Exception ex) {
+            // Test assertions
+            assertEquals(expectedError, ex.getMessage());
+        }
+
+
     }
 }

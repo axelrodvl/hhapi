@@ -1,6 +1,5 @@
 import API.Authorization;
 import API.Me;
-import API.Response;
 import Entity.*;
 import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
@@ -631,11 +630,7 @@ public class TestPostNegative {
         final String badArgumentFirstName = "Сергей";
         final String badArgumentMiddleName = "Петрович";
 
-        ErrorDescription expectedError = new ErrorDescription();
-        expectedError.description = "Forbidden";
-        expectedError.errors = new HashMap<String, String>();
-
-        expectedError.errors.put("bad_authorization", "oauth");
+        String expectedError = "java.io.IOException: Server returned HTTP response code: 403 for URL: https://api.hh.ru/me?access_token=abc";
 
         // Test action
         // Setting correct name
@@ -645,21 +640,22 @@ public class TestPostNegative {
                 "&middle_name=" + expectedMiddleName);
 
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(incorrectUser,
-                "last_name=" + badArgumentLastName +
-                "&first_name=" + badArgumentFirstName +
-                "&middle_name=" + badArgumentMiddleName);
-
-        ErrorDescription error = new ErrorDescription(response);
+        try {
+            OAuthResourceResponse response = Me.post(incorrectUser,
+                    "last_name=" + badArgumentLastName +
+                    "&first_name=" + badArgumentFirstName +
+                    "&middle_name=" + badArgumentMiddleName);
+        } catch (Exception ex) {
+            // Test assertions 1
+            assertEquals(expectedError, ex.getMessage());
+        }
 
         OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
-        // Test assertions
-        assertEquals(expectedError, error);
+        // Test assertions 2
         assertEquals(employee.first_name, expectedFirstName);
         assertEquals(employee.last_name, expectedLastName);
         assertEquals(employee.middle_name, expectedMiddleName);
-        assertEquals(403, response.getResponseCode());
     }
 }

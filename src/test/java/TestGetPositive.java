@@ -1,6 +1,5 @@
 import API.Authorization;
 import API.Me;
-import API.Response;
 import Entity.Employee;
 import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
