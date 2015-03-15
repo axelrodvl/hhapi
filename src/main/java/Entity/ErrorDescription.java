@@ -1,6 +1,5 @@
 package Entity;
 
-import API.Response;
 import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
