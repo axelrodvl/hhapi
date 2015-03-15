@@ -2,6 +2,7 @@ import API.Authorization;
 import API.Me;
 import API.Response;
 import Entity.Employee;
+import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -46,11 +47,11 @@ public class TestPostPositive {
             "last_name=" + expectedLastName +
             "&first_name=" + expectedFirstName +
             "&middle_name=" + expectedMiddleName);
-        Response response = Me.get(user);
+        OAuthResourceResponse response = Me.get(user);
         Employee employee = new Employee(response);
 
         // Test assertions
-        assertEquals(200, response.getCode());
+        assertEquals(200, response.getResponseCode());
         assertEquals(employee.first_name, expectedFirstName);
         assertEquals(employee.last_name, expectedLastName);
         assertEquals(employee.middle_name, expectedMiddleName);
@@ -71,11 +72,11 @@ public class TestPostPositive {
                 "last_name=" + expectedLastName +
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
-        Response response = Me.get(user);
+        OAuthResourceResponse response = Me.get(user);
         Employee employee = new Employee(response);
 
         // Test assertions
-        assertEquals(200, response.getCode());
+        assertEquals(200, response.getResponseCode());
         assertEquals(employee.first_name, expectedFirstName);
         assertEquals(employee.last_name, expectedLastName);
         assertEquals(employee.middle_name, expectedMiddleName);
@@ -95,11 +96,11 @@ public class TestPostPositive {
             "last_name=" + expectedLastName +
             "&first_name=" + expectedFirstName +
             "&middle_name=");
-        Response response = Me.get(user);
+        OAuthResourceResponse response = Me.get(user);
         Employee employee = new Employee(response);
 
         // Test assertions
-        assertEquals(200, response.getCode());
+        assertEquals(200, response.getResponseCode());
         assertNull(employee.middle_name);
     }
 
@@ -113,11 +114,11 @@ public class TestPostPositive {
 
         // Test actions
         Me.post(user, "is_in_search=" + expectedFlag);
-        Response response = Me.get(user);
+        OAuthResourceResponse response = Me.get(user);
         Employee employee = new Employee(response);
 
         // Test assertions
-        assertEquals(200, response.getCode());
+        assertEquals(200, response.getResponseCode());
         assertTrue(employee.is_in_search);
     }
 
@@ -131,11 +132,11 @@ public class TestPostPositive {
 
         // Test actions
         Me.post(user, "is_in_search=" + expectedFlag);
-        Response response = Me.get(user);
+        OAuthResourceResponse response = Me.get(user);
         Employee employee = new Employee(response);
 
         // Test assertions
-        assertEquals(200, response.getCode());
+        assertEquals(200, response.getResponseCode());
         assertFalse(employee.is_in_search);
     }
 
@@ -149,11 +150,11 @@ public class TestPostPositive {
 
         // Test actions
         Me.post(user, "is_in_search=" + expectedFlag);
-        Response response = Me.get(user);
+        OAuthResourceResponse response = Me.get(user);
         Employee employee = new Employee(response);
 
         // Test assertions
-        assertEquals(200, response.getCode());
+        assertEquals(200, response.getResponseCode());
         assertFalse(employee.is_in_search);
     }
 
@@ -167,11 +168,11 @@ public class TestPostPositive {
 
         // Test actions
         Me.post(user, "is_in_search=" + expectedFlag);
-        Response response = Me.get(user);
+        OAuthResourceResponse response = Me.get(user);
         Employee employee = new Employee(response);
 
         // Test assertions
-        assertEquals(200, response.getCode());
+        assertEquals(200, response.getResponseCode());
         assertFalse(employee.is_in_search);
     }
 }

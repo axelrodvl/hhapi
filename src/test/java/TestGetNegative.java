@@ -1,8 +1,8 @@
 import API.Authorization;
 import API.Me;
-import API.Response;
 import Entity.Employee;
 import Entity.ErrorDescription;
+import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -45,15 +45,15 @@ public class TestGetNegative {
 
         // Test action
         // Trying to get access with incorrect token
-        Response response = Me.get(incorrectUser);
+        OAuthResourceResponse response = Me.get(incorrectUser);
         ErrorDescription error = new ErrorDescription(response);
 
         // Trying to get access with correct token
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
-        assertEquals(403, response.getCode());
+        assertEquals(403, response.getResponseCode());
         assertEquals(expectedError, error);
     }
 }

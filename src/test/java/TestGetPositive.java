@@ -2,6 +2,7 @@ import API.Authorization;
 import API.Me;
 import API.Response;
 import Entity.Employee;
+import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -32,11 +33,11 @@ public class TestGetPositive {
     @Test
     public void getInfo() throws Exception {
         // Test actions
-        Response response = Me.get(user);
+        OAuthResourceResponse response = Me.get(user);
         Employee employee = new Employee(response);
 
         // Test assertions
-        assertEquals(200, response.getCode());
+        assertEquals(200, response.getResponseCode());
 
         assertNotNull(employee.id);
         assertNotNull(employee.last_name);

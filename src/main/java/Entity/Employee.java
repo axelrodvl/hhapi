@@ -1,6 +1,7 @@
 package Entity;
 
 import API.Response;
+import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -31,7 +32,7 @@ public class Employee {
      * @param response JSON as String
      * @throws Exception
      */
-    public Employee(Response response) throws Exception {
+    public Employee(OAuthResourceResponse response) throws Exception {
         JSONParser parser = new JSONParser();
         JSONObject responseJSON = (JSONObject) parser.parse(response.getBody());
 

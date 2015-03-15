@@ -2,6 +2,7 @@ import API.Authorization;
 import API.Me;
 import API.Response;
 import Entity.*;
+import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -64,7 +65,7 @@ public class TestPostNegative {
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + badArgumentLastName +
                 "&first_name=" + badArgumentFirstName +
                 "&middle_name=" + badArgumentMiddleName);
@@ -72,14 +73,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertEquals(expectedFirstName, employee.first_name);
         assertEquals(expectedLastName, employee.last_name);
         assertEquals(expectedMiddleName, employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -103,7 +104,7 @@ public class TestPostNegative {
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + badArgumentLastName +
                 "&first_name=" + badArgumentFirstName +
                 "&middle_name=" + badArgumentMiddleName);
@@ -111,14 +112,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertEquals(expectedLastName, employee.last_name);
         assertEquals(expectedFirstName, employee.first_name);
         assertEquals(expectedMiddleName, employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -142,7 +143,7 @@ public class TestPostNegative {
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + badArgumentLastName +
                         "&first_name=" + badArgumentFirstName +
                         "&middle_name=" + badArgumentMiddleName);
@@ -150,14 +151,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertEquals(expectedMiddleName, employee.middle_name);
         assertEquals(expectedFirstName, employee.first_name);
         assertEquals(expectedLastName, employee.last_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -181,7 +182,7 @@ public class TestPostNegative {
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + badArgumentLastName +
                         "&first_name=" + badArgumentFirstName +
                         "&middle_name=" + badArgumentMiddleName);
@@ -189,14 +190,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertEquals(expectedFirstName, employee.first_name);
         assertEquals(expectedLastName, employee.last_name);
         assertEquals(expectedMiddleName, employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -220,7 +221,7 @@ public class TestPostNegative {
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + badArgumentLastName +
                         "&first_name=" + badArgumentFirstName +
                         "&middle_name=" + badArgumentMiddleName);
@@ -228,14 +229,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertEquals(expectedLastName, employee.last_name);
         assertEquals(expectedFirstName, employee.first_name);
         assertEquals(expectedMiddleName, employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -259,7 +260,7 @@ public class TestPostNegative {
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + badArgumentLastName +
                         "&first_name=" + badArgumentFirstName +
                         "&middle_name=" + badArgumentMiddleName);
@@ -267,14 +268,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertEquals(expectedMiddleName, employee.middle_name);
         assertEquals(expectedFirstName, employee.first_name);
         assertEquals(expectedLastName, employee.last_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -294,7 +295,7 @@ public class TestPostNegative {
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" +
                 "&first_name=" +
                 "&middle_name=");
@@ -302,14 +303,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertNotNull("Employee first name is null", employee.first_name);
         assertNotNull("Employee middle name is null", employee.middle_name);
         assertNotNull("Employee last name is null", employee.last_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -329,7 +330,7 @@ public class TestPostNegative {
             "&first_name=" + expectedFirstName +
             "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + expectedLastName +
                         "&first_name=" +
                         "&middle_name=" + expectedMiddleName);
@@ -337,12 +338,12 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertNotNull("Employee first name is null", employee.first_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -362,7 +363,7 @@ public class TestPostNegative {
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" +
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
@@ -370,12 +371,12 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertNotNull("Employee last name is null", employee.last_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -395,7 +396,7 @@ public class TestPostNegative {
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + expectedLastName +
                 "&first_name=" +
                 "&middle_name=");
@@ -403,14 +404,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertNotNull("Employee last name is null", employee.last_name);
         assertNotNull("Employee first name is null", employee.first_name);
         assertNotNull("Employee middle name is null", employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -430,7 +431,7 @@ public class TestPostNegative {
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" +
                 "&first_name=" + expectedFirstName +
                 "&middle_name=");
@@ -438,14 +439,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertNotNull("Employee last name is null", employee.last_name);
         assertNotNull("Employee first name is null", employee.first_name);
         assertNotNull("Employee middle name is null", employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -465,7 +466,7 @@ public class TestPostNegative {
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" +
                 "&first_name=" +
                 "&middle_name=" + expectedMiddleName);
@@ -473,14 +474,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertNotNull("Employee last name is null", employee.last_name);
         assertNotNull("Employee first name is null", employee.first_name);
         assertNotNull("Employee middle name is null", employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -500,7 +501,7 @@ public class TestPostNegative {
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + expectedLastName +
                 "&first_name=" +
                 "&middle_name=" + expectedMiddleName);
@@ -508,14 +509,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertNotNull("Employee last name is null", employee.last_name);
         assertNotNull("Employee first name is null", employee.first_name);
         assertNotNull("Employee middle name is null", employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -535,7 +536,7 @@ public class TestPostNegative {
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" +
                 "&first_name=" + expectedFirstName +
                 "&middle_name=" + expectedMiddleName);
@@ -543,14 +544,14 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
         assertNotNull("Employee last name is null", employee.last_name);
         assertNotNull("Employee first name is null", employee.first_name);
         assertNotNull("Employee middle name is null", employee.middle_name);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -593,7 +594,7 @@ public class TestPostNegative {
         Me.post(user, "is_in_search=" + expectedFlag);
 
         // Trying to set incorrect name
-        Response response = Me.post(user,
+        OAuthResourceResponse response = Me.post(user,
                 "last_name=" + badArgumentLastName +
                 "&first_name=" + badArgumentFirstName +
                 "&middle_name=" + badArgumentMiddleName +
@@ -601,7 +602,7 @@ public class TestPostNegative {
 
         ErrorDescription error = new ErrorDescription(response);
 
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -610,7 +611,7 @@ public class TestPostNegative {
         assertEquals(employee.last_name, expectedLastName);
         assertEquals(employee.middle_name, expectedMiddleName);
         assertTrue(employee.is_in_search);
-        assertEquals(400, response.getCode());
+        assertEquals(400, response.getResponseCode());
     }
 
     /**
@@ -644,14 +645,14 @@ public class TestPostNegative {
                 "&middle_name=" + expectedMiddleName);
 
         // Trying to set incorrect name
-        Response response = Me.post(incorrectUser,
+        OAuthResourceResponse response = Me.post(incorrectUser,
                 "last_name=" + badArgumentLastName +
                 "&first_name=" + badArgumentFirstName +
                 "&middle_name=" + badArgumentMiddleName);
 
         ErrorDescription error = new ErrorDescription(response);
 
-        Response apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = Me.get(user);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -659,6 +660,6 @@ public class TestPostNegative {
         assertEquals(employee.first_name, expectedFirstName);
         assertEquals(employee.last_name, expectedLastName);
         assertEquals(employee.middle_name, expectedMiddleName);
-        assertEquals(403, response.getCode());
+        assertEquals(403, response.getResponseCode());
     }
 }

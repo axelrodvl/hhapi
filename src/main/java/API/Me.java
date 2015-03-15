@@ -1,5 +1,12 @@
 package API;
 
+import org.apache.oltu.oauth2.client.OAuthClient;
+import org.apache.oltu.oauth2.client.URLConnectionClient;
+import org.apache.oltu.oauth2.client.request.OAuthBearerClientRequest;
+import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
+import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
+import org.apache.oltu.oauth2.common.OAuth;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
@@ -7,6 +14,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class for making requests at https://api.hh.ru/me
@@ -16,81 +25,44 @@ public class Me {
     public static final String USER_AGENT = "axelrodvlTest/1.0 (axelrodvl@gmail.com)";
 
     /**
-     * Making get request without params
-     * @param auth Authorization, required to make requests
-     * @return Response object (response body and code)
-     * @throws Exception
-     */
-    public static Response get(Authorization auth) throws Exception {
-        URL url = new URL(API_URI);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("User-Agent", USER_AGENT);
-        connection.setRequestProperty("Authorization", "Bearer " + auth.getAccessToken());
-
-        int responseCode = connection.getResponseCode();
-        InputStream is;
-
-        if(responseCode < 400)
-            is = connection.getInputStream();
-        else
-            is = connection.getErrorStream();
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(is));
-        String inputLine;
-        StringBuffer responseBody = new StringBuffer();
-
-        while ((inputLine = in.readLine()) != null)
-            responseBody.append(inputLine);
-        in.close();
-
-        return new Response(responseCode, responseBody.toString());
-    }
-
-    /**
      * Making post request with @postParams
      * @param auth Authorization, required to make requests
      * @param postParams Request parameters
      * @return Response object (response body and code)
      * @throws Exception
      */
-    public static Response post(Authorization auth, String postParams) throws Exception {
-        URL url = new URL(API_URI);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        byte[] postData = postParams.getBytes(Charset.forName("UTF-8"));
-        int postDataLength = postData.length;
+    public static OAuthResourceResponse post(Authorization auth, String postParams) throws Exception {
+        // Creating authorization HTTP client
+        OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
 
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("User-Agent", USER_AGENT);
-        connection.setRequestProperty("Authorization", "Bearer " + auth.getAccessToken());
-        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        connection.setRequestProperty("charset", "utf-8");
-        connection.setRequestProperty("Content-Length", Integer.toString(postDataLength));
-        connection.setUseCaches(false);
-        connection.setDoInput(true);
-        connection.setDoOutput(true);
+        // Creating token-signed request
+        OAuthClientRequest signedPostRequest = new OAuthBearerClientRequest(API_URI)
+                .setAccessToken(auth.getAccessToken())
+                .buildQueryMessage();
+        signedPostRequest.setHeader("Authorization", "Bearer " + auth.getAccessToken());
+        signedPostRequest.setHeader("Content-Type", "application/x-www-form-urlencoded");
+        signedPostRequest.setBody(postParams);
 
-        DataOutputStream wr = new DataOutputStream(
-                connection.getOutputStream ());
-        wr.write(postData);
-        wr.flush();
-        wr.close();
+        return oAuthClient.resource(signedPostRequest, OAuth.HttpMethod.POST, OAuthResourceResponse.class);
+    }
 
-        int responseCode = connection.getResponseCode();
-        InputStream is;
+    /**
+    * Making get request without params
+        * @param auth Authorization, required to make requests
+        * @return Response object (response body and code)
+        * @throws Exception
+    */
+    public static OAuthResourceResponse get(Authorization auth) throws Exception {
+        // Creating authorization HTTP client
+        OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
 
-        if(connection.getResponseCode() < 400)
-            is = connection.getInputStream();
-        else
-            is = connection.getErrorStream();
+        // Creating token-signed request
+        OAuthClientRequest signedGetRequest = new OAuthBearerClientRequest(API_URI)
+                .setAccessToken(auth.getAccessToken())
+                .buildQueryMessage();
+        signedGetRequest.setHeader("Authorization", "Bearer " + auth.getAccessToken());
+        signedGetRequest.setHeader("Content-Type", "application/x-www-form-urlencoded");
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(is));
-        String inputLine;
-        StringBuffer responseBody = new StringBuffer();
-        while ((inputLine = in.readLine()) != null)
-            responseBody.append(inputLine);
-        in.close();
-
-        return new Response(responseCode, responseBody.toString());
+        return oAuthClient.resource(signedGetRequest, OAuth.HttpMethod.GET, OAuthResourceResponse.class);
     }
 }
