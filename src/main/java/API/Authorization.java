@@ -1,21 +1,17 @@
 package API;
 
 import Web.Xpath;
+import Selenium.Tools;
+import org.apache.oltu.oauth2.client.OAuthClient;
+import org.apache.oltu.oauth2.client.URLConnectionClient;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
+import org.apache.oltu.oauth2.client.response.OAuthJSONAccessTokenResponse;
+import org.apache.oltu.oauth2.common.message.types.GrantType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 import java.util.Date;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
 
 public class Authorization {
     // ChromeDriver settings
@@ -28,6 +24,7 @@ public class Authorization {
     private static final String TOKEN_LOCATION_URI = "https://m.hh.ru/oauth/token";
     private static final String CLIENT_ID = "GQQ5T3DIOSM9ALCALH3FURUC9ADNFV5IVS8KJHLHIGFLE11QHINM2NGG4SCD78P5";
     private static final String CLIENT_SECRET = "LFEE5IMDBEED2TP2IPH1DN00VTM3JMJ1CB25QDMAHLVPID0MH2CG1TSHQPD3JM6J";
+    private static final String REDIRECT_URI = "https://fasdfasdfasdfasddfasdfasdfasdfasdfasd";
 
     // Token properties
     private String accessToken = null;
@@ -75,25 +72,20 @@ public class Authorization {
         // Open web-browser with request URI, providing login/password and getting authorization code
         WebDriver driver = new ChromeDriver();
         driver.get(oAuthClientRequest.getLocationUri());
-
-        TimeUnit.MILLISECONDS.sleep(5000);
-
-        driver.findElement(By.xpath(Xpath.LoginWindow.editLogin)).sendKeys(clientLogin);
-        driver.findElement(By.xpath(Xpath.LoginWindow.editPassword)).sendKeys(clientPassword);
-        driver.findElement(By.xpath(Xpath.LoginWindow.buttonLogin)).click();
-        TimeUnit.MILLISECONDS.sleep(1000);
-
+        Tools.getLoadedElement(driver, 5000, Xpath.LoginWindow.editLogin).sendKeys(clientLogin);
+        Tools.getLoadedElement(driver, 5000, Xpath.LoginWindow.editPassword).sendKeys(clientPassword);
+        Tools.getLoadedElement(driver, 5000, Xpath.LoginWindow.buttonLogin).click();
+        // Providing access to application, if user not authorized app before
         try {
-            if (driver.findElement(By.xpath(Xpath.AccessApproval.textQuestion)).isDisplayed())
-                driver.findElement(By.xpath(Xpath.AccessApproval.buttonConfirm)).click();
+            if (Tools.getLoadedElement(driver, 1000, Xpath.AccessApproval.textQuestion).isDisplayed())
+                Tools.getLoadedElement(driver, 1000, Xpath.AccessApproval.buttonConfirm).click();
         } catch (Exception ex) {
             System.out.println("User already confirmed access to application");
         }
 
+        // Taking authorization code and closing browser
         String authorization_code = driver.getTitle().substring(52 ,116);
-
         driver.quit();
-
         return authorization_code;
     }
 
@@ -103,55 +95,22 @@ public class Authorization {
      * @throws Exception
      */
     private void setAccessToken(String authorizationCode) throws Exception {
-        String authParams =
-                "grant_type=authorization_code" +
-                "&client_id=" + CLIENT_ID +
-                "&client_secret=" + CLIENT_SECRET +
-                "&code=" + authorizationCode;
+        // Creating authorization HTTP client
+        OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
 
-        URL url = new URL(TOKEN_LOCATION_URI);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        byte[] postData = authParams.getBytes(Charset.forName("UTF-8"));
-        int postDataLength = postData.length;
-
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("User-Agent", USER_AGENT);
-        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        connection.setRequestProperty("charset", "utf-8");
-        connection.setRequestProperty("Content-Length", Integer.toString(postDataLength));
-        connection.setUseCaches(false);
-        connection.setDoInput(true);
-        connection.setDoOutput(true);
-
-        //Send request
-        DataOutputStream wr = new DataOutputStream(
-                connection.getOutputStream ());
-        wr.write(postData);
-        wr.flush();
-        wr.close();
-
-        //Get Response
-        InputStream is = connection.getInputStream();
-        BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-        String line;
-        StringBuffer response = new StringBuffer();
-        while((line = rd.readLine()) != null) {
-            response.append(line);
-            response.append('\r');
-        }
-        rd.close();
-
-        JSONParser parser = new JSONParser();
-        JSONObject responseJSON = (JSONObject) parser.parse(response.toString());
-
-        accessToken = (String) responseJSON.get("access_token");
-        System.out.println(accessToken);
-        expiresIn = (Long) responseJSON.get("expires_in");
-        refreshToken = (String) responseJSON.get("refresh_token");
-        String tokenType = (String) responseJSON.get("token_type");
-
-        if(!tokenType.equals("bearer"))
-            throw new Exception("Authorization type is changed.");
+        // Creating authorization request URI
+        OAuthClientRequest request = OAuthClientRequest
+                .tokenLocation(TOKEN_LOCATION_URI)
+                .setClientId(CLIENT_ID)
+                .setClientSecret(CLIENT_SECRET)
+                .setRedirectURI(REDIRECT_URI)
+                .setGrantType(GrantType.AUTHORIZATION_CODE)
+                .setCode(authorizationCode)
+                .buildBodyMessage();
+        OAuthJSONAccessTokenResponse response = oAuthClient.accessToken(request);
+        accessToken = response.getAccessToken();
+        expiresIn = response.getExpiresIn();
+        refreshToken = response.getRefreshToken();
         tokenStartTimeInSec = new Date().getTime() / 1000;
     }
 
