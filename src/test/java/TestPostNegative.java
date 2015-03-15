@@ -1,5 +1,6 @@
 import API.Authorization;
-import API.Me;
+import API.HeadHunterAPI;
+import API.Method;
 import Entity.*;
 import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
@@ -59,20 +60,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + badArgumentLastName +
-                "&first_name=" + badArgumentFirstName +
-                "&middle_name=" + badArgumentMiddleName);
+                        "&first_name=" + badArgumentFirstName +
+                        "&middle_name=" + badArgumentMiddleName);
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -98,20 +99,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + badArgumentLastName +
-                "&first_name=" + badArgumentFirstName +
-                "&middle_name=" + badArgumentMiddleName);
+                        "&first_name=" + badArgumentFirstName +
+                        "&middle_name=" + badArgumentMiddleName);
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -137,12 +138,12 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + badArgumentLastName +
                         "&first_name=" + badArgumentFirstName +
                         "&middle_name=" + badArgumentMiddleName);
@@ -150,7 +151,7 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -176,12 +177,12 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + badArgumentLastName +
                         "&first_name=" + badArgumentFirstName +
                         "&middle_name=" + badArgumentMiddleName);
@@ -189,7 +190,7 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -215,12 +216,12 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + badArgumentLastName +
                         "&first_name=" + badArgumentFirstName +
                         "&middle_name=" + badArgumentMiddleName);
@@ -228,7 +229,7 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -254,12 +255,12 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + badArgumentLastName +
                         "&first_name=" + badArgumentFirstName +
                         "&middle_name=" + badArgumentMiddleName);
@@ -267,7 +268,7 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -289,20 +290,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" +
-                "&first_name=" +
-                "&middle_name=");
+                        "&first_name=" +
+                        "&middle_name=");
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -324,12 +325,12 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
-            "last_name=" + expectedLastName +
-            "&first_name=" + expectedFirstName +
-            "&middle_name=" + expectedMiddleName);
+        HeadHunterAPI.post(user, Method.me,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
                         "&first_name=" +
                         "&middle_name=" + expectedMiddleName);
@@ -337,7 +338,7 @@ public class TestPostNegative {
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -357,20 +358,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -390,20 +391,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" +
-                "&middle_name=");
+                        "&first_name=" +
+                        "&middle_name=");
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -425,20 +426,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=");
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=");
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -460,20 +461,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" +
-                "&first_name=" +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" +
+                        "&middle_name=" + expectedMiddleName);
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -495,20 +496,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" +
+                        "&middle_name=" + expectedMiddleName);
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -530,20 +531,20 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
 
         // Getting name, which shouldn't be updated
         // while incorrect request and be equal
         // to already sent correct name
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -586,22 +587,23 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name and flag
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
-        Me.post(user, "is_in_search=" + expectedFlag);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
+        HeadHunterAPI.post(user, Method.me,
+                "is_in_search=" + expectedFlag);
 
         // Trying to set incorrect name
-        OAuthResourceResponse response = Me.post(user,
+        OAuthResourceResponse response = HeadHunterAPI.post(user, Method.me,
                 "last_name=" + badArgumentLastName +
-                "&first_name=" + badArgumentFirstName +
-                "&middle_name=" + badArgumentMiddleName +
-                "&is_in_search=" + badArgumentFlag);
+                        "&first_name=" + badArgumentFirstName +
+                        "&middle_name=" + badArgumentMiddleName +
+                        "&is_in_search=" + badArgumentFlag);
 
         ErrorDescription error = new ErrorDescription(response);
 
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions
@@ -634,23 +636,23 @@ public class TestPostNegative {
 
         // Test action
         // Setting correct name
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
-                "&first_name=" + expectedFirstName +
-                "&middle_name=" + expectedMiddleName);
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
 
         // Trying to set incorrect name
         try {
-            OAuthResourceResponse response = Me.post(incorrectUser,
+            OAuthResourceResponse response = HeadHunterAPI.post(incorrectUser, Method.me,
                     "last_name=" + badArgumentLastName +
-                    "&first_name=" + badArgumentFirstName +
-                    "&middle_name=" + badArgumentMiddleName);
+                            "&first_name=" + badArgumentFirstName +
+                            "&middle_name=" + badArgumentMiddleName);
         } catch (Exception ex) {
             // Test assertions 1
             assertEquals(expectedError, ex.getMessage());
         }
 
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test assertions 2

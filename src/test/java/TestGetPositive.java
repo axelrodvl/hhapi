@@ -1,5 +1,6 @@
 import API.Authorization;
-import API.Me;
+import API.HeadHunterAPI;
+import API.Method;
 import Entity.Employee;
 import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
@@ -32,7 +33,7 @@ public class TestGetPositive {
     @Test
     public void getInfo() throws Exception {
         // Test actions
-        OAuthResourceResponse response = Me.get(user);
+        OAuthResourceResponse response = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(response);
 
         // Test assertions

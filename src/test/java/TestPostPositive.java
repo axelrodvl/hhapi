@@ -1,5 +1,6 @@
 import API.Authorization;
-import API.Me;
+import API.HeadHunterAPI;
+import API.Method;
 import Entity.Employee;
 import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
 import org.junit.BeforeClass;
@@ -42,11 +43,11 @@ public class TestPostPositive {
         final String expectedMiddleName = "Иосифович";
 
         // Test actions
-        Me.post(user,
-            "last_name=" + expectedLastName +
-            "&first_name=" + expectedFirstName +
-            "&middle_name=" + expectedMiddleName);
-        OAuthResourceResponse response = Me.get(user);
+        HeadHunterAPI.post(user, Method.me,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=" + expectedMiddleName);
+        OAuthResourceResponse response = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(response);
 
         // Test assertions
@@ -67,11 +68,11 @@ public class TestPostPositive {
         final String expectedMiddleName = "Ахмат-хаджи";
 
         // Test actions
-        Me.post(user,
+        HeadHunterAPI.post(user, Method.me,
                 "last_name=" + expectedLastName +
                         "&first_name=" + expectedFirstName +
                         "&middle_name=" + expectedMiddleName);
-        OAuthResourceResponse response = Me.get(user);
+        OAuthResourceResponse response = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(response);
 
         // Test assertions
@@ -91,11 +92,11 @@ public class TestPostPositive {
         final String expectedFirstName = "Иван";
 
         // Test actions
-        Me.post(user,
-            "last_name=" + expectedLastName +
-            "&first_name=" + expectedFirstName +
-            "&middle_name=");
-        OAuthResourceResponse response = Me.get(user);
+        HeadHunterAPI.post(user, Method.me,
+                "last_name=" + expectedLastName +
+                        "&first_name=" + expectedFirstName +
+                        "&middle_name=");
+        OAuthResourceResponse response = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(response);
 
         // Test assertions
@@ -112,8 +113,9 @@ public class TestPostPositive {
         final String expectedFlag = "true";
 
         // Test actions
-        Me.post(user, "is_in_search=" + expectedFlag);
-        OAuthResourceResponse response = Me.get(user);
+        HeadHunterAPI.post(user, Method.me,
+                "is_in_search=" + expectedFlag);
+        OAuthResourceResponse response = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(response);
 
         // Test assertions
@@ -130,8 +132,9 @@ public class TestPostPositive {
         final String expectedFlag = "false";
 
         // Test actions
-        Me.post(user, "is_in_search=" + expectedFlag);
-        OAuthResourceResponse response = Me.get(user);
+        HeadHunterAPI.post(user, Method.me,
+                "is_in_search=" + expectedFlag);
+        OAuthResourceResponse response = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(response);
 
         // Test assertions
@@ -148,8 +151,9 @@ public class TestPostPositive {
         final String expectedFlag = "asdfasdf";
 
         // Test actions
-        Me.post(user, "is_in_search=" + expectedFlag);
-        OAuthResourceResponse response = Me.get(user);
+        HeadHunterAPI.post(user, Method.me,
+                "is_in_search=" + expectedFlag);
+        OAuthResourceResponse response = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(response);
 
         // Test assertions
@@ -166,8 +170,8 @@ public class TestPostPositive {
         final String expectedFlag = "0";
 
         // Test actions
-        Me.post(user, "is_in_search=" + expectedFlag);
-        OAuthResourceResponse response = Me.get(user);
+        HeadHunterAPI.post(user, Method.me, "is_in_search=" + expectedFlag);
+        OAuthResourceResponse response = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(response);
 
         // Test assertions

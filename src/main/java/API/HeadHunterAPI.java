@@ -19,10 +19,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class for making requests at https://api.hh.ru/me
+ * POST/GET requests for https://api.hh.ru with authorization
  */
-public class Me {
-    private static final String API_URI = "https://api.hh.ru/me";
+public class HeadHunterAPI {
     public static final String USER_AGENT = "axelrodvlTest/1.0 (axelrodvl@gmail.com)";
 
     /**
@@ -32,12 +31,12 @@ public class Me {
      * @return Response object (response body and code)
      * @throws Exception
      */
-    public static OAuthResourceResponse post(Authorization auth, String postParams) throws Exception {
+    public static OAuthResourceResponse post(Authorization auth, String serviceURI, String postParams) throws Exception {
         // Creating authorization HTTP client
         OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
 
         // Creating token-signed request
-        OAuthClientRequest signedPostRequest = new OAuthBearerClientRequest(API_URI)
+        OAuthClientRequest signedPostRequest = new OAuthBearerClientRequest(serviceURI)
                 .setAccessToken(auth.getAccessToken())
                 .buildQueryMessage();
         signedPostRequest.setHeader("Authorization", "Bearer " + auth.getAccessToken());
@@ -53,12 +52,12 @@ public class Me {
         * @return Response object (response body and code)
         * @throws Exception
     */
-    public static OAuthResourceResponse get(Authorization auth) throws Exception {
+    public static OAuthResourceResponse get(Authorization auth, String serviceURI) throws Exception {
         // Creating authorization HTTP client
         OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
 
         // Creating token-signed request
-        OAuthClientRequest signedGetRequest = new OAuthBearerClientRequest(API_URI)
+        OAuthClientRequest signedGetRequest = new OAuthBearerClientRequest(serviceURI)
                 .setAccessToken(auth.getAccessToken())
                 .buildQueryMessage();
         signedGetRequest.setHeader("Authorization", "Bearer " + auth.getAccessToken());

@@ -1,13 +1,10 @@
 import API.Authorization;
-import API.Me;
+import API.HeadHunterAPI;
+import API.Method;
 import Entity.Employee;
-import Entity.ErrorDescription;
 import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
-import org.apache.oltu.oauth2.common.OAuth;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -42,13 +39,13 @@ public class TestGetNegative {
         String expectedError = "java.io.IOException: Server returned HTTP response code: 403 for URL: https://api.hh.ru/me?access_token=abc";
 
         // Trying to get access with correct token
-        OAuthResourceResponse apiGetResponse = Me.get(user);
+        OAuthResourceResponse apiGetResponse = HeadHunterAPI.get(user, Method.me);
         Employee employee = new Employee(apiGetResponse);
 
         // Test action
         // Trying to get access with incorrect token
         try {
-            OAuthResourceResponse response = Me.get(incorrectUser);
+            OAuthResourceResponse response = HeadHunterAPI.get(incorrectUser, Method.me);
         } catch (Exception ex) {
             // Test assertions
             assertEquals(expectedError, ex.getMessage());
